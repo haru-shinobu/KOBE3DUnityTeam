@@ -1,0 +1,16 @@
+#
+*.suo
+*.user
+*.userosscache
+*.sln.docstates
+*.Library
+*.Logs
+
+#Directory
+Debug/
+.vs/
+
+
+Library
+Temp
+Build
