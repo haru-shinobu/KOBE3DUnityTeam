@@ -55,6 +55,10 @@ public class PlayerCotroller : MonoBehaviour
         {
             Speed = moveSpeed;
         }
+        if (col.gameObject.tag == "Canon_Sphere")
+        {
+            Ground = false;
+        }
     }
 
     void LateUpdate()
@@ -69,8 +73,9 @@ public class PlayerCotroller : MonoBehaviour
         rb.velocity = moveForward * Speed + new Vector3(0, rb.velocity.y, 0);
 
         // キャラクターの向きは、サードパーソンカメラが有効な時だけ変更する
-        if (moveForward != Vector3.zero && thirdPersonCamera.activeInHierarchy)
+        if (moveForward != Vector3.zero)
         {
+            if (thirdPersonCamera.activeInHierarchy && CanonCamera.activeInHierarchy)
             transform.rotation = Quaternion.LookRotation(moveForward);
         }
 

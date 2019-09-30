@@ -6,22 +6,24 @@ public class CanonContoroller : MonoBehaviour
 {
     public GameObject player;
     public bool BangFlag;
-
+    Vector3 pos;
+    
     void Start()
     {
         player = GameObject.Find("player");
         BangFlag = false;
+        pos = this.transform.position;
+        pos.y += 500;
     }
 
 
-    void OnTrigerEnter(Collider col)
+    void OnTriggerEnter(Collider col)
     {
-        if (col.gameObject.tag == "player")
+        if (col.gameObject.tag == "Player")
         {
-            Vector3 pos = this.transform.position;
-            pos.y += 50;
+
+            player.GetComponent<Rigidbody>().isKinematic = true;
             player.transform.position = pos;
-            player.GetComponent<Rigidbody>().useGravity = false;
             BangFlag = true;
         }
     }
@@ -30,17 +32,13 @@ public class CanonContoroller : MonoBehaviour
     {
         if (Input.GetKey(KeyCode.Space) && BangFlag)
         {
+            pos.y = 21;
+            player.transform.position = pos;
+            player.GetComponent<Rigidbody>().isKinematic = false;
             Rigidbody rb = player.GetComponent<Rigidbody>();
-            Vector3 force = new Vector3(0.0f, 10.0f, 0.0f);
-            rb.AddForce(force,ForceMode.Impulse);
-            if (BangFlag)
-            {
-                Vector3 pos = this.transform.position;
-                pos.y -= 50;
-                player.transform.position = pos;
-                player.GetComponent<Rigidbody>().useGravity = true;
-                BangFlag = false;
-            }
+            Vector3 force = new Vector3(0f, 0f, 0f);
+            rb.AddForce(force, ForceMode.Impulse);
+            BangFlag = false;
         }
     }
 }

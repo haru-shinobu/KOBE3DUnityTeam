@@ -5,19 +5,19 @@ using UnityEngine;
 public class TPSCameraController : MonoBehaviour
 {
     public GameObject player;
-    Vector3 targetPos;
+    Vector3 PlayerPos;
 
     void Start()
     {
         player = GameObject.Find("player");
-        targetPos = player.transform.position;
+        PlayerPos = player.transform.position;
     }
 
     void Update()
     {
         // targetの移動量分、自分（カメラ）も移動する
-        transform.position += player.transform.position - targetPos;
-        targetPos = player.transform.position;
+        transform.position += player.transform.position - PlayerPos;
+        PlayerPos = player.transform.position;
 
 
         if (player)//playerを中心にする向きへカメラを変える
@@ -27,7 +27,7 @@ public class TPSCameraController : MonoBehaviour
         }
 
         // マウスの右クリックを押している間
-        if (Input.GetKey(KeyCode.A) || Input.GetKey(KeyCode.S) && Input.GetKey(KeyCode.D) && Input.GetKey(KeyCode.W))
+        if (Input.GetKey(KeyCode.A) || Input.GetKey(KeyCode.S) || Input.GetKey(KeyCode.D) || Input.GetKey(KeyCode.W))
         {
             float InputX = 0;
             float InputY = 0;
@@ -50,9 +50,9 @@ public class TPSCameraController : MonoBehaviour
             
             
             // targetの位置のY軸を中心に、回転（公転）する
-            transform.RotateAround(targetPos, Vector3.up, InputX * Time.deltaTime * 200f);
+            transform.RotateAround(PlayerPos, Vector3.up, InputX * Time.deltaTime * 200f);
             // カメラの垂直移動（※角度制限なし、必要が無ければコメントアウト）
-                transform.RotateAround(targetPos, transform.right, InputY * Time.deltaTime * 200f);
+            transform.RotateAround(PlayerPos, transform.right, InputY * Time.deltaTime * 200f);
         }
     }
 }

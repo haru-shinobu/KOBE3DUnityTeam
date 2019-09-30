@@ -1453,7 +1453,7 @@ MonoBehaviour:
   firstPersonCamera: {fileID: 1904335579}
   thirdPersonCamera: {fileID: 534669902}
   CanonCamera: {fileID: 1331696854}
-  Canon_Sphere: {fileID: 0}
+  Canon_Sphere: {fileID: 2089657157}
 --- !u!65 &850637589
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -2890,7 +2890,7 @@ MonoBehaviour:
   MainCamera: {fileID: 677825093}
   firstPersonCamera: {fileID: 1904335579}
   thirdPersonCamera: {fileID: 534669902}
-  CanonCamera: {fileID: 0}
+  CanonCamera: {fileID: 1331696854}
   moveSpeed: 10
   JampForce: 10
 --- !u!136 &1018043085
@@ -3422,7 +3422,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Canon_shaft: {fileID: 0}
-  player: {fileID: 1018043083}
 --- !u!81 &1331696856
 AudioListener:
   m_ObjectHideFlags: 0
@@ -3897,7 +3896,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2089657157}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 17, z: 7}
+  m_LocalPosition: {x: 0, y: 14, z: 7}
   m_LocalScale: {x: 3, y: 3, z: 3}
   m_Children:
   - {fileID: 1110288894}

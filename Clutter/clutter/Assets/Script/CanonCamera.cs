@@ -5,7 +5,6 @@ using UnityEngine;
 public class CanonCamera : MonoBehaviour
 {
     public GameObject Canon_shaft;
-    public GameObject player;
     Vector3 targetPos;
     void Start()
     {
@@ -17,7 +16,7 @@ public class CanonCamera : MonoBehaviour
     {
 
         // targetの移動量分、自分（カメラ）も移動する
-        transform.position += Canon_shaft.transform.position - targetPos;
+        transform.position /*+*/= /*Canon_shaft.transform.position -*/ targetPos;
         targetPos = Canon_shaft.transform.position;
 
 
