@@ -8,8 +8,6 @@ public class PlayerCotroller : MonoBehaviour
     [SerializeField]
     private GameObject MainCamera;
     [SerializeField]
-    private GameObject firstPersonCamera;   // インスペクターで主観カメラを紐づける
-    [SerializeField]
     private GameObject thirdPersonCamera;   // インスペクターで第三者視点カメラを紐づける
     [SerializeField]
     private GameObject CanonCamera;

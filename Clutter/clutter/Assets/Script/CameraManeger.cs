@@ -7,8 +7,6 @@ public class CameraManeger : MonoBehaviour
     [SerializeField]
     private GameObject MainCamera;
     [SerializeField]
-    private GameObject firstPersonCamera;   // インスペクターで主観カメラを紐づける
-    [SerializeField]
     private GameObject thirdPersonCamera;   // インスペクターで第三者視点カメラを紐づける
     [SerializeField]
     private GameObject CanonCamera;
@@ -21,8 +19,7 @@ public class CameraManeger : MonoBehaviour
     void Start()
     {
         MainCamera.SetActive(false);
-        firstPersonCamera.SetActive(true);
-        thirdPersonCamera.SetActive(false);
+        thirdPersonCamera.SetActive(true);
         CanonCamera.SetActive(false);
         Canon_Sphere = GameObject.Find("Canon_Sphere");
         script = Canon_Sphere.GetComponent<CanonContoroller>();
@@ -31,8 +28,7 @@ public class CameraManeger : MonoBehaviour
     void BangCamera()
     {
         MainCamera.SetActive(false);
-        firstPersonCamera.SetActive(true);
-        thirdPersonCamera.SetActive(false);
+        thirdPersonCamera.SetActive(true);
         CanonCamera.SetActive(false);
     }
     // Update is called once per frame
@@ -41,7 +37,6 @@ public class CameraManeger : MonoBehaviour
         if (script.BangFlag)
         {
             MainCamera.SetActive(false);
-            firstPersonCamera.SetActive(false);
             thirdPersonCamera.SetActive(false);
             CanonCamera.SetActive(true);
             Flag = true;
@@ -49,20 +44,12 @@ public class CameraManeger : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.Alpha1))        // キーでカメラを切り替える
         {
             MainCamera.SetActive(true);
-            firstPersonCamera.SetActive(false);
             thirdPersonCamera.SetActive(false);
 
         }else
         if (Input.GetKeyDown(KeyCode.Alpha2))
         {
             MainCamera.SetActive(false);
-            firstPersonCamera.SetActive(true);
-            thirdPersonCamera.SetActive(false);
-        }else
-        if (Input.GetKeyDown(KeyCode.Alpha3))
-        {
-            MainCamera.SetActive(false);
-            firstPersonCamera.SetActive(false);
             thirdPersonCamera.SetActive(true);
         }
         if (!script.BangFlag && Flag)
